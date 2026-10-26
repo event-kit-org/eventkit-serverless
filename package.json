@@ -16,7 +16,7 @@
     "latency": "tsx scripts/scan-latency.ts"
   },
   "dependencies": {
-    "@crossbow2560/eventkit-core": "^0.3.0"
+    "@event-kit-org/eventkit-core": "^0.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

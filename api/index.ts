@@ -1,6 +1,6 @@
 // Every path is rewritten here (vercel.json); Fastify does the routing.
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { buildApp, type Config, loadConfig } from '@crossbow2560/eventkit-core';
+import { buildApp, type Config, loadConfig } from '@event-kit-org/eventkit-core';
 import type { FastifyInstance } from 'fastify';
 
 /**

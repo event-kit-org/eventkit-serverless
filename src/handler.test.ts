@@ -1,6 +1,6 @@
 import { createServer } from 'node:http';
 import type { AddressInfo } from 'node:net';
-import { loadConfig } from '@crossbow2560/eventkit-core';
+import { loadConfig } from '@event-kit-org/eventkit-core';
 import { afterAll, describe, expect, it } from 'vitest';
 import handler, { getApp } from '../api/index.ts';
 

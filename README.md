@@ -7,7 +7,7 @@ to it. `vercel.json` rewrites every path to that function.
 
 ## Install
 
-`@crossbow2560/eventkit-core` is a private package on GitHub Packages:
+`@event-kit-org/eventkit-core` is a private package on GitHub Packages:
 
 ```bash
 export NODE_AUTH_TOKEN=<GitHub token with read:packages>
