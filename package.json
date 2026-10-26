@@ -1,0 +1,39 @@
+{
+  "name": "eventkit-serverless",
+  "version": "0.1.0",
+  "private": true,
+  "description": "eventKit API on Vercel serverless functions (Mumbai). The main hosting target.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "migrate": "eventkit-migrate",
+    "latency": "tsx scripts/scan-latency.ts"
+  },
+  "dependencies": {
+    "@crossbow2560/eventkit-core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.13.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.0",
+    "vercel": "^48.0.0",
+    "vitest": "^5.0.5",
+    "fastify": "^5.12.7"
+  },
+  "allowScripts": {
+    "@prisma/engines@7.10.1": true,
+    "argon2@0.45.1": true,
+    "esbuild@0.28.2": true,
+    "prisma@7.10.1": true
+  }
+}
