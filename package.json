@@ -16,19 +16,19 @@
     "latency": "tsx scripts/scan-latency.ts"
   },
   "dependencies": {
-    "@event-kit-org/eventkit-core": "^0.3.0"
+    "@event-kit-org/eventkit-core": "^0.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.19.2",
     "eslint": "^10.13.0",
+    "fastify": "^5.12.7",
     "prettier": "^3.9.10",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.0",
     "vercel": "^48.0.0",
-    "vitest": "^5.0.5",
-    "fastify": "^5.12.7"
+    "vitest": "^5.0.5"
   },
   "allowScripts": {
     "@prisma/engines@7.10.1": true,
