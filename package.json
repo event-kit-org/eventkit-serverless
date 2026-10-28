@@ -16,7 +16,7 @@
     "latency": "tsx scripts/scan-latency.ts"
   },
   "dependencies": {
-    "@event-kit-org/eventkit-core": "^0.8.0"
+    "@event-kit-org/eventkit-core": "^0.9.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
