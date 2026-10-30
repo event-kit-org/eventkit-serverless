@@ -4,3 +4,5 @@ coverage
 .env
 .vercel
 *.tgz
+.env*
+.env*.local

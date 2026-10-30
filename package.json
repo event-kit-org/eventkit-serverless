@@ -16,7 +16,7 @@
     "latency": "tsx scripts/scan-latency.ts"
   },
   "dependencies": {
-    "@event-kit-org/eventkit-core": "^0.10.0"
+    "@event-kit-org/eventkit-core": "^0.11.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -27,7 +27,6 @@
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.0",
-    "vercel": "^48.0.0",
     "vitest": "^5.0.5"
   },
   "allowScripts": {
@@ -35,5 +34,8 @@
     "argon2@0.45.1": true,
     "esbuild@0.28.2": true,
     "prisma@7.10.1": true
+  },
+  "overrides": {
+    "@fastify/static": "10.1.3"
   }
 }
