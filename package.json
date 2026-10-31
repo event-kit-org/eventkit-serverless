@@ -13,7 +13,8 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "migrate": "eventkit-migrate",
-    "latency": "tsx scripts/scan-latency.ts"
+    "latency": "tsx scripts/scan-latency.ts",
+    "vercel-build": "node scripts/vercel-build.ts"
   },
   "dependencies": {
     "@event-kit-org/eventkit-core": "^0.11.0"

@@ -23,13 +23,19 @@ deploys are off in `vercel.json`):
 1. `npm run migrate`: migrations over `DIRECT_URL`, never inside a function
 2. `vercel build --prod` and `vercel deploy --prebuilt --prod`
 
+Every production build also migrates first (`vercel-build` →
+`scripts/vercel-build.ts`), so a manual `vercel --prod` can't ship code ahead
+of its schema. Preview builds skip it; a production build without `DIRECT_URL`
+fails.
+
 One-time setup:
 
 1. Create the Vercel project (Node.js 24, region `bom1`, no framework) and link
    it once locally: `npx vercel link`. Note the org and project ids in
    `.vercel/project.json`.
 2. In Vercel → Settings → Environment Variables (Production), set everything in
-   `.env.example` except `DIRECT_URL`. Use `DATABASE_POOL_MAX=1`.
+   `.env.example`, with `DIRECT_URL` scoped to Production only (never Preview:
+   previews must not migrate the production database). Use `DATABASE_POOL_MAX=1`.
 3. In GitHub → Settings → Secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`,
    `VERCEL_PROJECT_ID`, `DIRECT_URL`. In the eventkit-core package settings
    (GitHub Packages), give this repo read access.
