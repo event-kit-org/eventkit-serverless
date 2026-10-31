@@ -54,5 +54,9 @@ jobs:
         env:
           DIRECT_URL: ${{ secrets.DIRECT_URL }}
       - run: npx vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+      # Migrated above. `vercel pull` can't read the Secret DIRECT_URL, so the
+      # build's own migrate step (scripts/vercel-build.ts) must not run here.
       - run: npx vercel build --prod --token="$VERCEL_TOKEN"
+        env:
+          EVENTKIT_MIGRATED: '1'
       - run: npx vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"

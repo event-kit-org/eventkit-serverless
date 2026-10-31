@@ -15,10 +15,24 @@ if (process.env.VERCEL_ENV !== 'production') {
   process.exit(0);
 }
 
-if (!process.env.DIRECT_URL) {
+// The GitHub Actions deploy job migrates in its own step before `vercel build`.
+if (process.env.EVENTKIT_MIGRATED === '1') {
+  console.log('vercel-build: already migrated by the deploy job');
+  process.exit(0);
+}
+
+const url = process.env.DIRECT_URL;
+if (!url) {
   console.error(
     'vercel-build: DIRECT_URL is not set for Production in Vercel. ' +
       'Add it (Settings → Environment Variables, Production only) so the deploy can migrate.',
+  );
+  process.exit(1);
+}
+if (!/^postgres(ql)?:\/\//.test(url)) {
+  console.error(
+    'vercel-build: DIRECT_URL is not a postgres:// URL. A Secret variable pulled with ' +
+      '`vercel pull` comes through as a placeholder; otherwise check the value in Vercel.',
   );
   process.exit(1);
 }
