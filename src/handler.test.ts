@@ -34,7 +34,7 @@ describe('Vercel handler', async () => {
 
   it('routes requests into Fastify', async () => {
     const health = await fetch(`${base}/health`);
-    expect(await health.json()).toEqual({ status: 'ok' });
+    expect(await health.json()).toEqual({ status: 'ok', version: expect.any(String) });
     const me = await fetch(`${base}/v1/auth/me`);
     expect(me.status).toBe(401);
     expect(((await me.json()) as { error: { code: string } }).error.code).toBe('API_KEY_REQUIRED');
