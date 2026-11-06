@@ -36,8 +36,12 @@ One-time setup:
 2. In Vercel → Settings → Environment Variables (Production), set everything in
    `.env.example`, with `DIRECT_URL` scoped to Production only (never Preview:
    previews must not migrate the production database). Use `DATABASE_POOL_MAX=1`.
+   `DIRECT_URL` must be Supabase's **session pooler** (port 5432, user
+   `postgres.<project-ref>`), not the direct connection `db.<project-ref>.supabase.co`:
+   that one is IPv6-only, and Vercel's builders and GitHub's runners have no IPv6,
+   so migrations fail with `P1001: Can't reach database server`.
 3. In GitHub → Settings → Secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`,
-   `VERCEL_PROJECT_ID`, `DIRECT_URL`. In the eventkit-core package settings
+   `VERCEL_PROJECT_ID`, `DIRECT_URL` (the same session pooler URL). In the eventkit-core package settings
    (GitHub Packages), give this repo read access.
 4. **Vercel Firewall:** add a rate-limit rule for `/v1/auth/*` (for example 30
    requests per minute per IP, then deny). This is eventKit's brute-force
